@@ -106,7 +106,7 @@ function m.on_next_update(callback)
 end
 
 function m.as_soon_as(p, callback)
-	if not m.locked and m.ready then
+	if m.ready then
 		m.state = {
 			p = p,
 			callback = callback,
