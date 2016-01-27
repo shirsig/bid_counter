@@ -14,19 +14,9 @@ function m.wait_for_page(k)
 			return true
 		end
 		
-		return m.bids_loaded and m.owner_data_complete()
+		return m.bids_loaded
 		
 	end, k)
-end
-
-function m.owner_data_complete()
-	local n, _ = GetNumAuctionItems('bidder')
-	for i = 1, n do
-		if not ({GetAuctionItemInfo('bidder', i)})[12] then
-			return false
-		end
-	end
-	return true
 end
 
 function m.scan()
@@ -40,12 +30,7 @@ function m.scan()
 			end			
 		end
 		
-		if m.page + 1 < m.total_pages then
-			m.page = m.page + 1
-			return m.scan()
-		else
-			return m.k(m.count)
-		end
+		return m.k(m.count)
 		
     end)
 end
