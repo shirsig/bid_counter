@@ -1,0 +1,20 @@
+<Ui xsi:schemaLocation='http://www.blizzard.com/wow/ui/'>
+	<Script file='bid_counter.lua'/> 
+  
+	<Frame>
+      <Scripts> 
+			<OnLoad> 
+				this:RegisterEvent('ADDON_LOADED')
+				this:RegisterEvent('AUCTION_HOUSE_SHOW')
+				this:RegisterEvent('AUCTION_HOUSE_CLOSED')
+				this:RegisterEvent('AUCTION_BIDDER_LIST_UPDATE')
+			</OnLoad>
+			<OnEvent> 
+				bid_counter.on_event()
+			</OnEvent>
+			<OnUpdate>
+				bid_counter.on_update()
+			</OnUpdate>
+		</Scripts> 
+	</Frame>
+</Ui>
